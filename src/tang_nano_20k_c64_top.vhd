@@ -1132,9 +1132,12 @@ process(clk32)
 begin
 	if rising_edge(clk32) then
     case port_1_sel is
-      when "0000"  => joyA <= joyDigital;
+      when "0000"  => joyA <= joyDigital_p1;
         paddle_1_analogA <= '0';
-        paddle_2_analogA <= '0';      
+        paddle_2_analogA <= '0';     
+      when "0012"  => joyA <= joyDigital_p2;
+        paddle_1_analogA <= '0';
+        paddle_2_analogA <= '0';  
       when "0001"  => joyA <= joyUsb1;
         paddle_1_analogA <= '0';
         paddle_2_analogA <= '0';
@@ -1174,7 +1177,10 @@ begin
       end case;
 
     case port_2_sel is
-      when "0000"  => joyB <= joyDigital;  -- 0
+      when "0000"  => joyB <= joyDigital_p1;  -- 0
+        paddle_1_analogB <= '0';
+        paddle_2_analogB <= '0';
+  	  when "0012"  => joyB <= joyDigital_p2;  -- 0
         paddle_1_analogB <= '0';
         paddle_2_analogB <= '0';
       when "0001"  => joyB <= joyUsb1;     -- 1
