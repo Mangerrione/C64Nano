@@ -135,3 +135,12 @@ IO_LOC "ds2_miso" 77;
 IO_PORT "ds2_miso" PULL_MODE=UP IO_TYPE=LVCMOS33; 
 IO_LOC "ds2_cs" 31;
 IO_PORT "ds2_cs" PULL_MODE=UP IO_TYPE=LVCMOS33;
+
+// two additional spare pins
+IO_LOC "spare_49" 49;
+IO_PORT "spare_49" PULL_MODE=UP IO_TYPE=LVCMOS33;
+IO_LOC "spare_52" 52;
+IO_PORT "spare_52" PULL_MODE=UP IO_TYPE=LVCMOS33;
+
+
+
