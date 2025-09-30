@@ -111,6 +111,7 @@ IO_LOC "ds_cs"  72;
 IO_PORT "ds_cs" PULL_MODE=NONE DRIVE=8 IO_TYPE=LVCMOS33; // "midi_in"
 
 // Joystick DS 2 using Spare Header on MisteryShield20k
+// optionally used for 2nd DB9 port
 IO_LOC "ds2_clk" 73;
 IO_PORT "ds2_clk" PULL_MODE=UP IO_TYPE=LVCMOS33;
 IO_LOC "ds2_mosi" 74;
@@ -119,3 +120,9 @@ IO_LOC "ds2_miso" 77;
 IO_PORT "ds2_miso" PULL_MODE=UP IO_TYPE=LVCMOS33; 
 IO_LOC "ds2_cs" 31;
 IO_PORT "ds2_cs" PULL_MODE=UP IO_TYPE=LVCMOS33;
+
+// two additional spare pins used for 2nd DB9 port
+IO_LOC "spare_49" 49;
+IO_PORT "spare_49" PULL_MODE=UP IO_TYPE=LVCMOS33;
+IO_LOC "spare_52" 52;
+IO_PORT "spare_52" PULL_MODE=UP IO_TYPE=LVCMOS33;

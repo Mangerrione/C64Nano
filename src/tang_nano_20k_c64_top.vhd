@@ -70,10 +70,13 @@ entity tang_nano_20k_c64_top is
     ds_miso       : inout std_logic; -- midi_out
     ds_cs         : inout std_logic; -- midi_in
     -- Gamepad DualShock P1 misteryshield20k
-    ds2_clk       : out std_logic;
-    ds2_mosi      : out std_logic;
-    ds2_miso      : in std_logic;
-    ds2_cs        : out std_logic;
+    ds2_clk       : inout std_logic;
+    ds2_mosi      : inout std_logic;
+    ds2_miso      : inout std_logic;
+    ds2_cs        : inout std_logic;
+    -- additional spare pins for 2nd DB9 port
+    spare_49      : in std_logic;
+    spare_52      : in std_logic;
     -- spi flash interface
     mspi_cs       : out std_logic;
     mspi_clk      : out std_logic;
@@ -1113,7 +1116,7 @@ leds(0) <= led1541;
 joyDS2_p1  <= key_circle  & key_cross  & key_square  & key_right  & key_left  & key_down  & key_up;
 joyDS2_p2  <= key_circle2 & key_cross2 & key_square2 & key_right2 & key_left2 & key_down2 & key_up2;
 joyDigital_p1 <= not('1' & io(5) & io(0) & io(3) & io(4) & io(1) & io(2));
-joyDigital_p2 <= not('1' & io(5) & io(0) & io(3) & io(4) & io(1) & io(2));
+joyDigital_p2 <= not('1' & ds2_clk & ds2_mosi & ds2_miso & ds2_cs & spare_49 & spare_52);
 joyUsb1    <= joystick1(6 downto 4) & joystick1(0) & joystick1(1) & joystick1(2) & joystick1(3);
 joyUsb2    <= joystick2(6 downto 4) & joystick2(0) & joystick2(1) & joystick2(2) & joystick2(3);
 joyNumpad  <= '0' & numpad(5 downto 4) & numpad(0) & numpad(1) & numpad(2) & numpad(3);
